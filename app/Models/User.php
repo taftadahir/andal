@@ -31,6 +31,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Scopes
+    public function scopeAdmin($query)
+    {
+        $query->where('role', 'admin');
+    }
+
     // Relationships
     public function articles()
     {
