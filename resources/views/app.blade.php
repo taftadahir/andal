@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth dark transition duration-150 ">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
         @vite('resources/js/app.js')
         @inertiaHead
     </head>
-    <body class="font-montserrat antialiased bg-primary-50 dark:bg-black-500">
+    <body class="font-montserrat antialiased bg-white-50 dark:bg-black-500 no-scrollbar">
         @inertia
     </body>
 </html>
