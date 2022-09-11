@@ -12,6 +12,8 @@ class Article extends Model
 {
     use HasFactory, SoftDeletes;
 
+    public const STATUS_PUBLISHED = 'published';
+
     protected $fillable = [
         'title',
         'slug',
@@ -27,14 +29,24 @@ class Article extends Model
         'deleted_at',
     ];
 
-    protected $casts = [
-    ];
-
     protected function publishedAt(): Attribute
     {
         return Attribute::make(
             get: fn($value) => $value == null ? null : Carbon::parse($value)->format('d M Y'),
         );
+    }
+
+    protected function readTime(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $value == null ? 0 : floor($value / 60),
+        );
+    }
+
+    // Scope
+    public function scopePublished($query)
+    {
+        return $query->where('status', Article::STATUS_PUBLISHED);
     }
 
     // Relationships

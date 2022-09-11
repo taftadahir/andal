@@ -8,12 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-/**
- * @mixin IdeHelperUser
- */
 class User extends Authenticatable
 {
+    // Traits
     use HasApiTokens, HasFactory, Notifiable;
+
+    // Properties
+    public const ROLE_ADMIN = 'admin';
 
     protected $fillable = [
         'name',
