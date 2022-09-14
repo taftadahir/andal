@@ -58,7 +58,7 @@ const open = ref(false);
             leave-from-class="transform opacity-100 scale-100"
             leave-to-class="transform opacity-0 scale-95">
             <div v-show="open"
-                    class="absolute z-50 mt-2 shadow-md w-full sm:w-48 bg-white-50 dark:bg-black-500 dark:bg-opacity-5"
+                    class="absolute z-50 mt-2 shadow-md w-full sm:w-48 bg-primary-50 dark:bg-black-600 bg-opacity-95"
                     :class="[widthClass, alignmentClasses]"
                     style="display: none;"
                     @click="open = false">

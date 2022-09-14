@@ -35,11 +35,20 @@ class FrontendController extends Controller
         ]);
     }
 
-
     public function single(Article $article)
     {
+        $articlesBySameAuthor = Article::query();
+
+        if (!auth()->check() || auth()->user()->role != User::ROLE_ADMIN) {
+            $articlesBySameAuthor->published();
+        }
         return Inertia::render('Laru/Single', [
             'article' => $article,
+            'articlesBySameAuthor' => $articlesBySameAuthor
+                                        ->limit(3)
+                                        ->with(['author:id,name', 'banner:id,name'])
+                                        ->latest()
+                                        ->get(['author', 'banner', 'slug', 'title', 'published_at', 'read_time']),
         ]);
     }
 }

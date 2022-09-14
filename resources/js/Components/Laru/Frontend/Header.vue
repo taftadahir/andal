@@ -45,7 +45,7 @@ import ArrowIosDownwardOutline from "@/Components/Laru/Icons/ArrowIosDownwardOut
 
                     <template #content>
                         <!-- TODO: This should show only for admin -->
-                        <DropdownLink :href="route('dashboard')" as="button" class="">
+                        <DropdownLink :href="route('dashboard')" as="button">
                             Dashboard
                         </DropdownLink>
 

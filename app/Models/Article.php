@@ -32,7 +32,7 @@ class Article extends Model
     protected function publishedAt(): Attribute
     {
         return Attribute::make(
-            get: fn($value) => $value == null ? null : Carbon::parse($value)->format('d M Y'),
+            get: fn($value) => $value == null ? null : Carbon::parse($value)->format('M d, Y'),
         );
     }
 
