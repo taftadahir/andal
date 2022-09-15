@@ -25,7 +25,7 @@
 .single h3,
 .single h4,
 .single h5 {
-    @apply font-semibold mb-4 mt-12;
+    @apply font-semibold mb-4 mt-8;
 }
 
 .single h1 {

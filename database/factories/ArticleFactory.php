@@ -29,8 +29,8 @@ class ArticleFactory extends Factory
             'title' => fake()->text(100),
             'slug' => fake()->unique()->slug(5),
 
-            'content' => fake()->sentence(10),
-            'excerpt' => fake()->sentence(3),
+            'content' => fake()->sentence(250),
+            'excerpt' => fake()->sentence(25),
 
             'read_time' => fake()->numberBetween(3600, 7200),
             'views' => fake()->numberBetween(0, 3000000 )
@@ -62,6 +62,15 @@ class ArticleFactory extends Factory
         return $this->state(function (array $attributes) use ($content){
             return [
                 'content' => $content,
+            ];
+        });
+    }
+
+    public function title($title = "")
+    {
+        return $this->state(function (array $attributes) use ($title){
+            return [
+                'title' => $title,
             ];
         });
     }

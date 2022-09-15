@@ -24,110 +24,70 @@ class ArticleSeeder extends Seeder
             ->create();
 
         // Typical article
-        $code = '
-            <pre>
-                <code data-theme="olaolu-palenight" data-lang="php" class="torchlight" style="background-color: #292D3E; --theme-selection-background: #7580B850;" id="clipText-28">
-                <!-- Syntax highlighted by torchlight.dev -->
-                <div class="line">
-                    <span style="color: #BEC5D4;">$user</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #C792EA;">=</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #FFCB8B;">User</span>
-                    <span style="color: #89DDFF;">::</span>
-                    <span style="color: #82AAFF;">factory</span>
-                    <span style="color: #BFC7D5;">()</span>
-                </div>
-                <div class="line">
-                    <span style="color: #BFC7D5;">            </span>
-                    <span style="color: #89DDFF;">-&gt;</span>
-                    <span style="color: #82AAFF;">hasAttached</span>
-                    <span style="color: #BFC7D5;">(</span></div>
-                    <div class="line">
-                        <span style="color: #BFC7D5;">                </span>
-                        <span style="color: #FFCB8B;">Role</span>
-                        <span style="color: #89DDFF;">::</span>
-                        <span style="color: #82AAFF;">factory</span>
-                        <span style="color: #BFC7D5;">()</span>
-                    </div><div class="line"><span style="color: #BFC7D5;">  </span>
-                    <span style="color: #89DDFF;">-&gt;</span>
-                    <span style="color: #82AAFF;">count</span>
-                    <span style="color: #BFC7D5;">(</span>
-                    <span style="color: #F78C6C;">3</span>
-                    <span style="color: #BFC7D5;">)</span>
-                    </div><div class="line"><span style="color: #BFC7D5;"></span>
-                    <span style="color: #89DDFF;">-&gt;</span>
-                    <span style="color: #82AAFF;">state</span>
-                    <span style="color: #BFC7D5;">(</span>
-                    <span style="color: #C792EA;">function</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #D9F5DD;">(</span>
-                    <span style="color: #C792EA;">array</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #BEC5D4;">$attributes</span>
-                    <span style="color: #BFC7D5;">, </span>
-                    <span style="color: #FFCB8B;">User</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #BEC5D4;">$user</span>
-                    <span style="color: #D9F5DD;">)</span>
-                    <span style="color: #BFC7D5;"> {</span>
-                </div>
-                <div class="line">
-                    <span style="color: #BFC7D5;"></span>
-                    <span style="color: #C792EA;">return</span>
-                    <span style="color: #BFC7D5;"> [</span>
-                    <span style="color: #D9F5DD;">\'</span>
-                    <span style="color: #C3E88D;">name</span>
-                    <span style="color: #D9F5DD;">\'</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #89DDFF;">=&gt;</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #BEC5D4;">$user</span>
-                    <span style="color: #89DDFF;">-&gt;name</span>
-                    <span style="color: #89DDFF;">.</span>
-                    <span style="color: #D9F5DD;">\'</span>
-                    <span style="color: #C3E88D;"> Role</span>
-                    <span style="color: #D9F5DD;">\'</span>
-                    <span style="color: #BFC7D5;">];</span>
-                </div>
-                <div class="line">
-                    <span style="color: #BFC7D5;">}),</span>
-                </div>
-                <div class="line">
-                    <span style="color: #BFC7D5;">[</span>
-                    <span style="color: #D9F5DD;">\'</span>
-                    <span style="color: #C3E88D;">active</span>
-                    <span style="color: #D9F5DD;">\'</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #89DDFF;">=&gt;</span>
-                    <span style="color: #BFC7D5;"> </span>
-                    <span style="color: #82AAFF;">true</span>
-                    <span style="color: #BFC7D5;">]</span>
-                </div>
-                <div class="line">
-                    <span style="color: #BFC7D5;">)</span>
-                </div>
-                <div class="line">
-                    <span style="color: #BFC7D5;">            </span>
-                    <span style="color: #89DDFF;">-&gt;</span>
-                    <span style="color: #82AAFF;">create</span>
-                    <span style="color: #BFC7D5;">();</span>
-                </div>
-            </code>
-        </pre>
-        ';
         $h2 = '<h2>Heading 2 - Introduction</h2>';
         $h3 = '<h3>Heading 3 - Introduction</h3>';
         $h4 = '<h4>Heading 4 - Introduction</h4>';
-        $image = '<img src="/img/callouts/lightbulb.min.svg" class="opacity-75">';
+        $image = '<div class="img">
+        <img src="/storage/assets/asset-1.jpg" alt="Article Image"/>
+        <span>Lorem ipsum dolor sit amet,
+          consectetur
+          adipiscing elit.</span>
+      </div>';
+      $code = '
+      <pre data-src="/storage/code/test.css"></pre>
+            <pre data-src="/storage/code/test.php"></pre>
+            <pre data-src="/storage/code/test.java"></pre>
+            <pre data-src="/storage/code/test.html"></pre>
+            <pre data-src="/storage/code/test.py"></pre>
+            <pre data-src="/storage/code/test.js"></pre>
+            <pre data-src="/storage/code/test.sql"></pre>';
+
         $paragraph = '
-            <p>
-                Sometimes you may wish to alternate the value of a given model attribute for each created model. You may accomplish this by defining a state transformation as a sequence. For example, you may wish to alternate the value of an <code>admin</code> column between <code>Y</code> and <code>N</code> for each created user:
-            </p>';
+        <p>
+        On sait depuis longtemps que travailler avec du
+        texte lisible et contenant du sens est source de
+        distractions, et empêche de se concentrer sur la
+        mise en page elle-même. L\'avantage du Lorem Ipsum
+        sur un texte générique comme \'Du texte. Du texte. Du
+        texte.\' est qu\'il possède une distribution de
+        lettres plus ou moins normale, et en tout cas
+        comparable avec celle du français standard. De
+        nombreuses suites logicielles de mise en page ou
+        éditeurs de sites <mark>Web2</mark> ont fait du Lorem Ipsum leur
+        faux texte par défaut, et une recherche pour \'Lorem
+        Ipsum\' vous conduira vers de nombreux sites qui n\'en
+        sont encore qu\'à leur phase de construction.
+        Plusieurs versions sont apparues avec le temps,
+        parfois par accident, souvent intentionnellement
+        (histoire d\'
+      </p>';
+
+      $paragraph2 = '
+      <p>Du
+      texte.\' est qu\'il possède une distribution de
+      lettres plus ou moins normale, et en tout cas
+      comparable avec celle du français standard. De
+      nombreuses suites logicielles de mise en page ou
+      éditeurs de sites Web ont fait du Lorem Ipsum leur
+      faux texte par défaut, et une recherche pour \'Lorem
+      Ipsum\' vous conduira vers de nombreux sites qui n\'en
+      sont encore qu\'à leur phase de construction.
+      Plusieurs versions sont apparues avec le temps,
+      parfois par accident,
+      <a href="http://www.google.com" target="_blank">This is a link to
+        google</a>
+      (histoire d\'y rajouter de petits clins d\'oeil, voire
+      des phrases embarassantes).</p>';
 
         Article::factory()
-            ->content($h2 . $code . $h2 . $image . $h3 . $paragraph . $h4 . $paragraph . $h2 . $paragraph)
+            ->content($h2 . $code . $h2 . $image . $h3 . $paragraph . $h4 . $paragraph2 . $h2 . $paragraph)
+            ->title('What is ERC-20 in Blockchain technology?')
             ->publish()
             ->create();
     }
 }
+
+
+
+
+
