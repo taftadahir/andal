@@ -2,6 +2,10 @@
 import { Link } from "@inertiajs/inertia-vue3";
     
 const props = defineProps({
+    typeTag: {
+        type: String,
+        default: 'submit', 
+    },
     type: {
         type: String,
         default: 'primary', 
@@ -19,5 +23,8 @@ typeClass = defaultClass + ' ' + typeClass;
 </script>
 
 <template>
-    <Link :class="typeClass"><slot /></Link>
+    <!-- <Link :class="typeClass"><slot /></Link> -->
+    <button :type="typeTag" :class="typeClass">
+        <slot />
+    </button>
 </template>

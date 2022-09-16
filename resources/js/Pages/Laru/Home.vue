@@ -6,7 +6,7 @@ import debounce from "lodash/debounce"
 import LaruFrontendLayout from '@/Layouts/Laru/Frontend.vue'
 import LaruInput from '@/Components/Laru/Input.vue'
 import Article from '@/Components/Laru/Article.vue';
-import LinkButton from '@/Components/Laru/LinkButton.vue';
+import LaruLinkButton from '@/Components/Laru/LinkButton.vue';
 
 const props = defineProps({
     articles: Object,
@@ -63,10 +63,10 @@ watch(search, debounce(function (value) {
         <!-- Infinite Scroll || Pagination -->
         <div class="flex items-center justify-center w-full space-x-4"
             v-if="articles.prev_page_url || articles.next_page_url">
-            <LinkButton v-if="articles.prev_page_url"
-                :href="articles.prev_page_url">Previous</LinkButton>
-            <LinkButton v-if="articles.next_page_url"
-                :href="articles.next_page_url">Next</LinkButton>
+            <LaruLinkButton v-if="articles.prev_page_url"
+                :href="articles.prev_page_url">Previous</LaruLinkButton>
+            <LaruLinkButton v-if="articles.next_page_url"
+                :href="articles.next_page_url">Next</LaruLinkButton>
         </div>
 
     </LaruFrontendLayout>

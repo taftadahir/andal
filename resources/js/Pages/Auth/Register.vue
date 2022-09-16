@@ -1,10 +1,9 @@
 <script setup>
-import BreezeButton from '@/Components/Button.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
-import BreezeInput from '@/Components/Input.vue';
-import BreezeInputError from '@/Components/InputError.vue';
-import BreezeLabel from '@/Components/Label.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import { Head, useForm } from '@inertiajs/inertia-vue3';
+import LaruButton from '@/Components/Laru/Button.vue';
+import LaruLink from "@/Components/Laru/Link.vue";
+import LaruInput from '@/Components/Laru/Input.vue'
+import LaruGuestLayout from '@/Layouts/Laru/Guest.vue';
 
 const form = useForm({
     name: '',
@@ -22,43 +21,35 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <LaruGuestLayout>
+
         <Head title="Register" />
 
-        <form @submit.prevent="submit">
-            <div>
-                <BreezeLabel for="name" value="Name" />
-                <BreezeInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
-                <BreezeInputError class="mt-2" :message="form.errors.name" />
-            </div>
+        <form @submit.prevent="submit" class="space-y-6">
+            <LaruInput type="text" class="block w-full" v-model="form.name"
+                placeholder="Name" />
 
-            <div class="mt-4">
-                <BreezeLabel for="email" value="Email" />
-                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
-                <BreezeInputError class="mt-2" :message="form.errors.email" />
-            </div>
+            <LaruInput type="email" class="block w-full"
+                v-model="form.email" placeholder="Email" />
 
-            <div class="mt-4">
-                <BreezeLabel for="password" value="Password" />
-                <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
-                <BreezeInputError class="mt-2" :message="form.errors.password" />
-            </div>
+            <LaruInput type="password" class="block w-full"
+                v-model="form.password" placeholder="Password" />
 
-            <div class="mt-4">
-                <BreezeLabel for="password_confirmation" value="Confirm Password" />
-                <BreezeInput id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
-                <BreezeInputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
+            <LaruInput type="password" class="block w-full"
+                v-model="form.password_confirmation"
+                placeholder="Password confirmation" />
 
-            <div class="flex items-center justify-end mt-4">
-                <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
+            <div class="flex items-center justify-end">
+                <LaruLink :href="route('login')">
                     Already registered?
-                </Link>
+                </LaruLink>
 
-                <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <LaruButton class="ml-4"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing">
                     Register
-                </BreezeButton>
+                </LaruButton>
             </div>
         </form>
-    </BreezeGuestLayout>
+    </LaruGuestLayout>
 </template>

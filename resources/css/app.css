@@ -75,3 +75,39 @@
 .single mark {
     @apply text-secondary-500 bg-transparent;
 }
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus 
+input:-internal-autofill-selected{
+    @apply text-base p-4 bg-primary-50 border active:bg-primary-50 focus:bg-primary-50 focus-within:bg-primary-50 !border-transparent focus:!border-primary-500 ring-0 focus:ring-transparent placeholder-black-300 dark:placeholder-white-600 text-black-500 caret-black-500 transition ease-in-out duration-150;
+    background-color: #edf1fb !important;
+    border-color: #edf1fb !important;
+    -webkit-box-shadow: 0 0 0 1000px #edf1fb inset !important;
+    -webkit-text-fill-color: #2b2f35 !important;
+}
+
+/* Change Autocomplete styles in Chrome*/
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover, 
+.dark input:-webkit-autofill:focus,
+.dark textarea:-webkit-autofill,
+.dark textarea:-webkit-autofill:hover,
+.dark textarea:-webkit-autofill:focus,
+.dark select:-webkit-autofill,
+.dark select:-webkit-autofill:hover,
+.dark select:-webkit-autofill:focus 
+.dark input:-internal-autofill-selected{
+    @apply text-base p-4 bg-black-600 border active:bg-black-600 focus:bg-black-600 focus-within:bg-black-600 !border-transparent focus:!border-primary-500 ring-0 focus:ring-transparent placeholder-white-600 text-primary-50 caret-primary-50 transition ease-in-out duration-150;
+    background-color: #272b30 !important;
+    border-color: #272b30 !important;
+    -webkit-box-shadow: 0 0 0 1000px #272b30 inset !important;
+    -webkit-text-fill-color: #edf1fb !important;
+}

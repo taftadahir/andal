@@ -1,7 +1,6 @@
 <script setup>
 import { Head } from "@inertiajs/inertia-vue3";
 import LaruFrontendLayout from "@/Layouts/Laru/Frontend.vue";
-import Link from "@/Components/Laru/Link.vue";
 import { onMounted } from "@vue/runtime-core";
 import Article from "@/Components/Laru/Article.vue";
 import "./../../prism.js";
