@@ -30,21 +30,21 @@ const submit = () => {
             <LaruValidationErrors class="mb-4"/>
             <form @submit.prevent="submit" class="space-y-6">
                 <LaruInput type="text" class="block w-full" v-model="form.name"
-                    placeholder="Name" autofocus/>
+                    placeholder="Name" autofocus required/>
 
                 <LaruInput type="email" class="block w-full"
-                    v-model="form.email" placeholder="Email" />
+                    v-model="form.email" placeholder="Email" required/>
 
                 <LaruInput type="password" class="block w-full"
-                    v-model="form.password" placeholder="Password" />
+                    v-model="form.password" placeholder="Password" required/>
 
                 <LaruInput type="password" class="block w-full"
                     v-model="form.password_confirmation"
-                    placeholder="Password confirmation" />
+                    placeholder="Password confirmation" required/>
 
                 <div class="flex items-center justify-end">
                     <LaruLink :href="route('login')">
-                        Already registered?
+                        Already have an account?
                     </LaruLink>
 
                     <LaruButton class="ml-4"
