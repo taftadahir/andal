@@ -14,24 +14,11 @@ use Inertia\Inertia;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     *
-     * @return \Inertia\Response
-     */
     public function create()
     {
         return Inertia::render('Auth/Register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -40,16 +27,25 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $role = '';
+
+        if ($request->email == 'andal@admin.com') {
+            $role = 'admin';
+        }
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $role,
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
-
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        if($role == 'admin'){
+            return redirect()->route(RouteServiceProvider::DASHBOARD);
+        }
+
+        return redirect()->route(RouteServiceProvider::HOME);
     }
 }
