@@ -42,7 +42,7 @@ const submit = () => {
                 v-model="form.password" placeholder="Password" required
                 autocomplete="current-password" />
 
-            <div class="block mt-4">
+            <!-- <div class="block mt-4">
                 <label class="flex items-center">
                     <LaruCheckbox name="remember"
                         v-model:checked="form.remember" />
@@ -50,12 +50,11 @@ const submit = () => {
                         class="ml-2 text-sm text-black-300">Remember
                         me</span>
                 </label>
-            </div>
+            </div> -->
 
             <div class="flex items-center justify-end mt-4">
-                <LaruLink v-if="canResetPassword"
-                    :href="route('password.request')">
-                    Forgot your password?
+                <LaruLink v-if="canResetPassword" :href="route('register')">
+                    Don't have an account?
                 </LaruLink>
 
                 <LaruButton class="ml-4"
