@@ -45,7 +45,7 @@ import ArrowIosDownwardOutline from "@/Components/Laru/Icons/ArrowIosDownwardOut
 
                     <template #content>
                         <!-- TODO: This should show only for admin -->
-                        <DropdownLink :href="route('dashboard')" as="button">
+                        <DropdownLink :href="route('dashboard')" as="button" v-if="$page.props.auth.isAdmin">
                             Dashboard
                         </DropdownLink>
 

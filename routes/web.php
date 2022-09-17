@@ -7,8 +7,14 @@ use Inertia\Inertia;
 Route::get('/', [ FrontendController::class, 'home' ])->name('home');
 Route::get('/single/{article:slug}', [ FrontendController::class, 'single' ])->name('single');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Laru/Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'admin'])->group(function()
+{
+    Route::get('/dashboard', function () {
+        return Inertia::render('Laru/Dashboard');
+    })->name('dashboard');
+});
 
 require __DIR__.'/auth.php';
+require __DIR__.'/article.php';
+require __DIR__.'/user.php';
+require __DIR__.'/setting.php';
