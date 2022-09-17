@@ -1,14 +1,15 @@
 <script setup>
 import ArrowUpwardOutline from "@/Components/Laru/Icons/ArrowUpwardOutline.vue";
 import BulbOutline from "@/Components/Laru/Icons/BulbOutline.vue";
+import useSwitchTheme from "@/Composables/switchTheme";
 
 function goUp() {
     window.scrollTo(0, 0);
 }
 
-function switchTheme() {
-    document.documentElement.classList.toggle('dark');
-}
+const { switchTheme } = useSwitchTheme();
+
+const toggleTheme = () =>  switchTheme();
 </script>
     
 <template>
@@ -17,7 +18,7 @@ function switchTheme() {
             class="max-w-5xl w-full mx-auto flex flex-col sm:flex-row sm:justify-between items-center sm:h-20 py-4 sm:py-0">
 
             <div class="flex flex-row space-x-4 sm:order-last">
-                <button @click="switchTheme">
+                <button @click="toggleTheme">
                     <BulbOutline
                         class="fill-black-500 dark:fill-white-500 hover:fill-primary-500 hover:dark:fill-primary-500 transition duration-150 ease-in-out" />
                 </button>
