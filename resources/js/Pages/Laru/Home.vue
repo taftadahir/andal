@@ -28,7 +28,7 @@ watch(search, debounce(function (value) {
     <Head title="Laru Home" />
 
     <LaruFrontendLayout>
-        
+
         <!-- Welcome message -->
         <div
             class="sm:mx-4 lg:mx-0 px-8 py-10 mb-4 bg-primary-50 dark:bg-black-600">
@@ -46,7 +46,7 @@ watch(search, debounce(function (value) {
         <!-- Search -->
         <div class="sm:mx-4 lg:mx-0 mb-10">
             <div>
-                <LaruInput type="text" class="block w-full max-w-xl"
+                <LaruInput type="text" class="block w-full max-w-xl p-4"
                     v-model="search" placeholder="Start by searching" />
             </div>
         </div>
@@ -58,7 +58,9 @@ watch(search, debounce(function (value) {
                 :article="article"></Article>
         </div>
 
-        <div v-if="!articles.data.length" class="text-base sm:text-xl text-black-300 dark:text-white-500 transition ease-in-out duration-150">No result ...</div>
+        <div v-if="!articles.data.length"
+            class="text-base sm:text-xl text-black-300 dark:text-white-500 transition ease-in-out duration-150">
+            No result ...</div>
 
         <!-- Infinite Scroll || Pagination -->
         <div class="flex items-center justify-center w-full space-x-4"
