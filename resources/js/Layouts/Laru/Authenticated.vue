@@ -67,7 +67,7 @@ const toggleTheme = () => switchTheme();
                 </SidebarItem>
 
                 <!-- Article -->
-                <SidebarItem :active="route().current('articles.index')" :href="route('articles.index')"
+                <SidebarItem :active="route().current('articles.index') || route().current('articles.create')" :href="route('articles.index')"
                     :show-title="showingSidebarTitle">
                     <template #title>
                         Articles

@@ -17,7 +17,8 @@ class ArticleController extends Controller
 
     public function create()
     {
-       //
+        return Inertia::render('Laru/Article/Create', [
+        ]);
     }
 
     public function store(StoreArticleRequest $request)
