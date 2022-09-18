@@ -55,7 +55,7 @@ watch(search, debounce(function (value) {
         <div
             class="mb-10 sm:px-4 lg:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 no-scrollbar">
             <Article v-for="article in articles.data" :key="article.slug"
-                :article="article"></Article>
+                :article="article" :show-image="article.banner"></Article>
         </div>
 
         <div v-if="!articles.data.length"

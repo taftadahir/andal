@@ -35,7 +35,7 @@ class User extends Authenticatable
     // Scopes
     public function scopeAdmin($query)
     {
-        $query->where('role', 'admin');
+        $query->where('role', User::ROLE_ADMIN);
     }
 
     // Relationships

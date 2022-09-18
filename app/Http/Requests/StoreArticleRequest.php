@@ -3,28 +3,38 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Str;
 
 class StoreArticleRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    protected $stopOnFirstFailure = true;
+
+    protected function prepareForValidation(): void
     {
-        return false;
+        if ($this->input('status') == '' || $this->input('status') == null || ( $this->input('status') != 'draft' &&  $this->input('status') != 'published' &&  $this->input('status') != 'archived' )) {
+            $this->merge([
+                'status' => 'draft',
+            ]);
+        }
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
+    public function authorize()
+    {
+        return true;
+    }
+
     public function rules()
     {
         return [
-            //
+            'banner' => ['nullable', 'integer', 'exists:assets,id'],
+            
+            'title' => ['bail', 'string', 'required', 'max:255'],
+            'slug' => ['bail', 'string', 'required', 'unique:articles,slug', 'max:255'],
+            'status' => ['nullable', 'string', 'max:255'],
+
+            'content' => ['string', 'nullable'],
+            'excerpt' => ['string', 'nullable'],
+            'read_time' => ['integer', 'nullable'],
         ];
     }
 }

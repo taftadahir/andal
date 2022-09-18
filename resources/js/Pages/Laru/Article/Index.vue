@@ -33,12 +33,12 @@ watch(search, debounce(function (value) {
 
     <LaruAuthenticatedLayout>
         <div
-            class="flex flex-col justify-center max-w-7xl mx-auto sm:px-4 lg:px-6 h-full">
+            class="flex flex-col justify-center max-w-7xl mx-auto sm:px-4 lg:px-6 w-full">
 
             <div class="flex flex-row justify-between mb-8">
                 <div class="flex flex-row items-center">
                     <span
-                        class="text-white-50 font-semibold text-3xl">Articles</span>
+                        class="text-black-500 dark:text-white-50 font-semibold text-3xl">Articles</span>
 
                     <!-- Search -->
                     <div class="ml-4">
@@ -54,7 +54,7 @@ watch(search, debounce(function (value) {
             <div class="min-h-[32rem]">
 
                 <div
-                    class="overflow-x-auto overflow-y-auto no-scrollbar relative z-30 pb-8">
+                    class="overflow-x-auto overflow-y-auto no-scrollbar relative z-30 pb-4">
                     <table
                         class="w-full text-sm text-left text-black-500 dark:text-white-50">
                         <thead
@@ -90,7 +90,7 @@ watch(search, debounce(function (value) {
                                 </td>
                                 <td class="px-6">
                                     <span class="font-medium px-2 py-1"
-                                        :class="{ 'bg-secondary-500': article.status == 'draft', 'bg-success-500': article.status == 'published', 'bg-error-500': article.status == 'archived',  }"
+                                        :class="{ 'bg-secondary-500': article.status == 'draft', 'bg-success-500 text-white-50': article.status == 'published', 'bg-error-500': article.status == 'archived',  }"
                                         v-html="article.status"></span>
                                 </td>
                                 <td class="px-6">{{ article.read_time }} mins
@@ -142,7 +142,6 @@ watch(search, debounce(function (value) {
                     <!-- Infinite Scroll || Pagination -->
                     <div class="flex items-center justify-between w-full mt-6"
                         v-if="articles.prev_page_url || articles.next_page_url">
-                        <div></div>
                         <div class="space-x-4">
                             <LaruLinkButton v-if="articles.prev_page_url"
                                 :href="articles.prev_page_url">Previous

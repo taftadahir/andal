@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Str;
 
 class Article extends Model
 {
@@ -40,6 +41,13 @@ class Article extends Model
     {
         return Attribute::make(
             get: fn($value) => $value == null ? 0 : floor($value / 60),
+        );
+    }
+    
+    protected function slug(): Attribute
+    {
+        return Attribute::make(
+            set: fn ($value) => Str::slug($value),
         );
     }
 

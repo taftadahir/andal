@@ -13,6 +13,7 @@ import BulbOutline from '@/Components/Laru/Icons/BulbOutline.vue';
 import useSwitchTheme from "@/Composables/switchTheme";
 import Person from "@/Components/Laru/Icons/Person.vue";
 import CloudUploadOutline from "@/Components/Laru/Icons/CloudUploadOutline.vue";
+import FlashMessage from '@/Components/Laru/Dashboard/FlashMessage.vue';
 
 const showingSidebarTitle = ref(false);
 const { switchTheme } = useSwitchTheme();
@@ -23,13 +24,17 @@ const toggleTheme = () => switchTheme();
 <template>
     <div class="sm:hidden flex items-center justify-center h-screen">
         <div class="flex flex-col items-center justify-center mx-8">
-            <Link :href="route('home')"
-                class="h-20 flex flex-row items-center">
-                <ApplicationLogo class="block h-10 w-auto" />
-                <span
-                    class="text-3xl font-semibold text-primary-500 ml-6">Andal</span>
-                </Link>
-            <p class="text-3xl font-medium leading-normal text-center mt-4 text-black-500 dark:text-white-500">Dashboard <span class="text-error-500 font-semibold">not supported</span> on small screen [ <span class="text-error-500 font-semibold">width less or equal than 674px</span> ]</p>
+            <Link :href="route('home')" class="h-20 flex flex-row items-center">
+            <ApplicationLogo class="block h-10 w-auto" />
+            <span
+                class="text-3xl font-semibold text-primary-500 ml-6">Andal</span>
+            </Link>
+            <p
+                class="text-3xl font-medium leading-normal text-center mt-4 text-black-500 dark:text-white-500">
+                Dashboard <span class="text-error-500 font-semibold">not
+                    supported</span> on small screen [ <span
+                    class="text-error-500 font-semibold">width less or equal
+                    than 674px</span> ]</p>
         </div>
     </div>
     <div class="h-screen hidden flex-row sm:flex">
@@ -57,7 +62,8 @@ const toggleTheme = () => switchTheme();
                 </SidebarItem>
 
                 <!-- User -->
-                <SidebarItem :active="route().current('users.index')" :href="route('users.index')"
+                <SidebarItem :active="route().current('users.index')"
+                    :href="route('users.index')"
                     :show-title="showingSidebarTitle">
                     <template #title>
                         Users
@@ -67,7 +73,9 @@ const toggleTheme = () => switchTheme();
                 </SidebarItem>
 
                 <!-- Article -->
-                <SidebarItem :active="route().current('articles.index') || route().current('articles.create')" :href="route('articles.index')"
+                <SidebarItem
+                    :active="route().current('articles.index') || route().current('articles.create')"
+                    :href="route('articles.index')"
                     :show-title="showingSidebarTitle">
                     <template #title>
                         Articles
@@ -77,7 +85,8 @@ const toggleTheme = () => switchTheme();
                 </SidebarItem>
 
                 <!-- Setting -->
-                <SidebarItem :active="route().current('settings.index')" :href="route('settings.index')"
+                <SidebarItem :active="route().current('settings.index')"
+                    :href="route('settings.index')"
                     :show-title="showingSidebarTitle">
                     <template #title>
                         Setting
@@ -105,7 +114,7 @@ const toggleTheme = () => switchTheme();
         <div class="flex flex-col h-screen w-full overflow-hidden">
             <!-- Header -->
             <div
-                class="h-20 w-full px-4 flex flex-row justify-between items-center">
+                class="h-20 flex-shrink-0 w-full px-4 flex flex-row justify-between items-center">
                 <button @click="showingSidebarTitle = !showingSidebarTitle">
                     <Layout
                         class="fill-black-500 dark:fill-white-500 hover:fill-primary-500 hover:dark:fill-primary-500 transition duration-150 ease-in-out" />
@@ -132,9 +141,15 @@ const toggleTheme = () => switchTheme();
                 </div>
             </div>
 
+            <div class="my-2 h-28 flex flex-row justify-end items-center" v-if="$page.props.flash.success">
+                <FlashMessage v-if="$page.props.flash.success"
+                    :body="$page.props.flash.success" type="success" />
+            </div>
+
             <!-- Content -->
-            <div class="h-full flex-grow overflow-auto no-scrollbar px-4 text-black-500 dark:text-white-500">
-                <slot/>
+            <div
+                class="overflow-auto no-scrollbar px-4 text-black-500 dark:text-white-500">
+                <slot />
             </div>
         </div>
     </div>

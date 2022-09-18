@@ -21,16 +21,24 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'auth' => [
-                'user' => $request->user()!= null ? $request->user()->only(['name']) : null,
+                'user' => fn () => $request->user()
+                    ? $request->user()->only('id', 'name')
+                    : null,
                 'canLogin' => Route::has('login'),
                 'canRegister' => Route::has('register'),
-                'isAdmin' => $request->user()!= null ? $request->user()->role == User::ROLE_ADMIN : false
+                'isAdmin' => $request->user() ? $request->user()->role == User::ROLE_ADMIN : false
             ],
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
                     'location' => $request->url(),
                 ]);
             },
+            'flash' => [
+                'success' => session('success'),
+                'error' => session('error'),
+                'warning' => session('warning'),
+                'info' => session('info'),
+            ]
         ]);
     }
 }
