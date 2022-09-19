@@ -15,5 +15,5 @@
     </script>
     
     <template>
-      <span v-if="hasError" class="block text-error-500 text-base mt-2"> {{ errors[props.input] }} </span>
+      <span v-if="hasError" class="block text-error-500 text-base"> {{ errors[props.input] }} </span>
     </template>

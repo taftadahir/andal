@@ -74,6 +74,13 @@ class Article extends Model
         );
     }
 
+    protected function updatedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value ? Carbon::parse($value)->format(Article::DATE_FORMAT) : null,
+        );
+    }
+
     protected function status(): Attribute
     {
         return Attribute::make(

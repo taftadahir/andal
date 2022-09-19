@@ -23,7 +23,7 @@ class ArticleController extends Controller
             })
             ->with(['author:id,name', 'banner:id,name'])
             ->latest()
-            ->paginate(8, ['id', 'author', 'banner', 'status', 'slug', 'title', 'published_at', 'created_at', 'read_time'])
+            ->paginate(8, ['id', 'author', 'banner', 'status', 'slug', 'title', 'published_at', 'updated_at', 'read_time'])
             ->withQueryString();
 
         return Inertia::render('Laru/Article/Index', [

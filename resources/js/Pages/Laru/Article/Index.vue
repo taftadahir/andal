@@ -79,7 +79,7 @@ watch(search, debounce(function (value) {
                                     Published At
                                 </th>
                                 <th scope="col" class="px-6">
-                                    Created At
+                                    Updated At
                                 </th>
                                 <th scope="col" class="px-6">
                                 </th>
@@ -106,7 +106,7 @@ watch(search, debounce(function (value) {
                                 <td class="px-6"> {{ article.published_at ??
                                 '---' }}
                                 </td>
-                                <td class="px-6"> {{ article.created_at ??
+                                <td class="px-6"> {{ article.updated_at ??
                                 '---' }}
                                 </td>
                                 <td
