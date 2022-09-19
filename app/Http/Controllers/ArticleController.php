@@ -35,9 +35,9 @@ class ArticleController extends Controller
     public function create()
     {
         $statuses = [
-            'draft' => "Draft",
-            'published' => "Published",
-            'archived' => "Archived",
+            Article::STATUS_DRAFT => "Draft",
+            Article::STATUS_PUBLISHED => "Published",
+            Article::STATUS_ARCHIVED => "Archived",
         ];
         $authors = User::admin()->get(['id', 'name']);
 
@@ -52,11 +52,11 @@ class ArticleController extends Controller
         $validated = $request->validated();
 
         if (isset($validated['status'])) {
-            if ($validated['status'] == 'published') {
+            if ($validated['status'] == Article::STATUS_PUBLISHED) {
                 $validated['published_at'] = Carbon::now();
             }
 
-            if ($validated['status'] == 'archived') {
+            if ($validated['status'] == Article::STATUS_ARCHIVED) {
                 $validated['archived_at'] = Carbon::now();
             }
         }

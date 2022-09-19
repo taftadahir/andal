@@ -1,7 +1,7 @@
 <script setup>
 import LaruAuthenticatedLayout from '@/Layouts/Laru/Authenticated.vue';
 import { Head, useForm, usePage } from '@inertiajs/inertia-vue3';
-import { Inertia } from "@inertiajs/inertia"
+// import { Inertia } from "@inertiajs/inertia"
 import LaruLinkButton from '@/Components/Laru/LinkButton.vue';
 import LaruButton from '@/Components/Laru/Button.vue';
 import LaruInput from '@/Components/Laru/Input.vue'
@@ -14,7 +14,7 @@ import { watch } from "vue";
 
 const { slugify } = useSlugify();
 
-const props = defineProps({
+defineProps({
     authors: Array,
     statuses: Object,
 });
@@ -46,9 +46,9 @@ const submit = () => {
 
     <LaruAuthenticatedLayout>
         <div
-            class="flex flex-col items-start justify-center max-w-7xl mx-auto sm:px-4 lg:px-6 w-full">
+            class="flex flex-col max-w-7xl mx-auto w-full">
 
-            <div class="flex flex-row items-center justify-between mb-8 w-full">
+            <div class="flex flex-row items-center justify-between mb-8">
                 <span
                     class="text-black-500 dark:text-white-50 font-semibold text-3xl">Create
                     Article</span>
@@ -57,10 +57,10 @@ const submit = () => {
                 </LaruButton>
             </div>
 
-            <div class="min-h-[32rem] w-full" >
+            <div class="min-h-[32rem]">
                 <form class="space-y-6 mb-6">
                     <div class="flex flex-row justify-between items-start">
-                        <div class="w-full max-w-md">
+                        <div class="w-full max-w-lg">
                             <LaruLabel for="title" value="Title" />
                             <LaruInput id="title" v-model="form.title"
                                 autocomplete="title" autofocus
@@ -70,7 +70,7 @@ const submit = () => {
                             <ValidationError input="title" />
                         </div>
 
-                        <div class="w-full max-w-md">
+                        <div class="w-full max-w-lg">
                             <LaruLabel for="slug" value="Slug" />
                             <LaruInput id="slug" v-model="form.slug"
                                 class="block w-full mt-2 p-4"
@@ -81,7 +81,7 @@ const submit = () => {
                     </div>
 
                     <div class="flex flex-row justify-between items-start">
-                        <div class="w-full max-w-md">
+                        <div class="w-full max-w-lg">
                             <LaruLabel for="author" value="Author" />
                             <LaruSelect id="author" v-model="form.author">
                                 <option v-for="author in authors"
@@ -91,7 +91,7 @@ const submit = () => {
                             <ValidationError input="author" />
                         </div>
 
-                        <div class="w-full max-w-md">
+                        <div class="w-full max-w-lg">
                             <LaruLabel for="status" value="Status" />
                             <LaruSelect id="status" v-model="form.status">
                                 <option v-for="(value, key) in statuses"
@@ -102,21 +102,21 @@ const submit = () => {
                     </div>
 
                     <div class="flex flex-row justify-end items-start">
-                        <div class="w-full max-w-md">
-                            <LaruLabel for="read_time" value="Read time" />
+                        <div class="w-full max-w-lg">
+                            <LaruLabel for="read_time" value="Read time [ seconds ]" />
                             <LaruInput id="read_time" v-model="form.read_time"
                                 autocomplete="read_time"
-                                class="block w-full mt-2"
+                                class="block w-full mt-2 p-4"
                                 placeholder="Fill read time in seconds"
                                 type="number" />
                             <ValidationError input="read_time" />
                         </div>
                     </div>
-                    
+
                     <div class="w-full">
                         <LaruLabel for="excerpt" value="Excerpt" />
                         <LaruTextarea id="excerpt" v-model="form.excerpt"
-                            class="block w-full mt-2" name="excerpt"
+                            class="block w-full mt-2 p-4" name="excerpt"
                             placeholder="Fill the excerpt" rows="4" />
                         <ValidationError input="excerpt" />
                     </div>
@@ -124,7 +124,7 @@ const submit = () => {
                     <div class="w-full">
                         <LaruLabel for="content" value="Content" />
                         <LaruTextarea id="content" v-model="form.content"
-                            class="block w-full mt-2" name="content"
+                            class="block w-full mt-2 p-4" name="content"
                             placeholder="Fill the content" rows="16" />
                         <ValidationError input="content" />
                     </div>
