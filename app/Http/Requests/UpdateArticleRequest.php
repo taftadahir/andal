@@ -2,29 +2,39 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Article;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateArticleRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+    protected $stopOnFirstFailure = true;
+
+    protected function prepareForValidation(): void
+    {
+        if ($this->input('status') == '' || $this->input('status') == null || ( $this->input('status') != Article::STATUS_DRAFT &&  $this->input('status') != Article::STATUS_PUBLISHED &&  $this->input('status') != Article::STATUS_ARCHIVED )) {
+            $this->merge([
+                'status' => Article::STATUS_DRAFT,
+            ]);
+        }
+    }
+    
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
     public function rules()
     {
         return [
-            //
+            'banner' => ['nullable', 'integer', 'exists:assets,id'],
+            
+            'title' => ['bail', 'string', 'required', 'max:255'],
+            'slug' => ['bail', 'string', 'required', 'unique:articles,slug,'.$this->route('article')->id, 'max:255'],
+            'status' => ['nullable', 'string', 'max:255'],
+
+            'content' => ['string', 'nullable'],
+            'excerpt' => ['string', 'nullable'],
+            'read_time' => ['integer', 'nullable'],
         ];
     }
 }

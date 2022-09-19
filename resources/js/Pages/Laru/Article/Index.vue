@@ -42,7 +42,7 @@ watch(search, debounce(function (value) {
 
                     <!-- Search -->
                     <div class="ml-4">
-                        <LaruInput type="text" class="block w-full max-w-xl"
+                        <LaruInput type="text" class="block w-full max-w-xl py-2"
                             v-model="search" placeholder="Search" />
                     </div>
                 </div>
@@ -70,10 +70,16 @@ watch(search, debounce(function (value) {
                                     Status
                                 </th>
                                 <th scope="col" class="px-6">
+                                    Asset
+                                </th>
+                                <th scope="col" class="px-6">
                                     Read time
                                 </th>
                                 <th scope="col" class="px-6">
                                     Published At
+                                </th>
+                                <th scope="col" class="px-6">
+                                    Created At
                                 </th>
                                 <th scope="col" class="px-6">
                                 </th>
@@ -93,10 +99,15 @@ watch(search, debounce(function (value) {
                                         :class="{ 'bg-secondary-500': article.status == 'draft', 'bg-success-500 text-white-50': article.status == 'published', 'bg-error-500': article.status == 'archived',  }"
                                         v-html="article.status"></span>
                                 </td>
+                                <td class="px-6">{{ article.banner? article.banner.name : '---' }}
+                                </td>
                                 <td class="px-6">{{ article.read_time }} mins
                                 </td>
                                 <td class="px-6"> {{ article.published_at ??
-                                '--- --- ---' }}
+                                '---' }}
+                                </td>
+                                <td class="px-6"> {{ article.created_at ??
+                                '---' }}
                                 </td>
                                 <td
                                     class="flex flex-row justify-end py-4 px-6 h-full whitespace-nowrap">
@@ -144,10 +155,10 @@ watch(search, debounce(function (value) {
                         v-if="articles.prev_page_url || articles.next_page_url">
                         <div class="space-x-4">
                             <LaruLinkButton v-if="articles.prev_page_url"
-                                :href="articles.prev_page_url">Previous
+                                :href="articles.prev_page_url" class="py-2">Previous
                             </LaruLinkButton>
                             <LaruLinkButton v-if="articles.next_page_url"
-                                :href="articles.next_page_url">Next
+                                :href="articles.next_page_url" class="py-2">Next
                             </LaruLinkButton>
                         </div>
                         <div

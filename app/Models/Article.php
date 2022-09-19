@@ -60,6 +60,13 @@ class Article extends Model
         );
     }
 
+    protected function archivedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => $value ? Carbon::parse($value)->format(Article::DATE_FORMAT) : null ,
+        );
+    }
+
     protected function createdAt(): Attribute
     {
         return Attribute::make(
@@ -70,16 +77,16 @@ class Article extends Model
     protected function status(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) => $value ? Article::STATUS_DRAFT : $value
+            set: fn ($value) => $value ? $value : Article::STATUS_DRAFT
         );
     }
 
-    protected function readTime(): Attribute
-    {
-        return Attribute::make(
-            get: fn($value) => $value ? floor($value / 60): 0,
-        );
-    }
+    // protected function readTime(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn($value) => $value ? floor($value / 60): 0,
+    //     );
+    // }
     
     protected function slug(): Attribute
     {

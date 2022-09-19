@@ -19,6 +19,10 @@ if (props.type == 'secondary') {
     typeClass = "px-2 bg-primary-50 dark:bg-black-600 sm:bg-transparent sm:dark:bg-transparent text-black-500 dark:text-white-50 hover:text-primary-500 dark:hover:text-primary-500 active:text-primary-500 dark:active:text-primary-500 focus:outline-none focus:text-primary-500 dark:focus:text-primary-500";
 }
 
+if (props.type == 'error') {
+    typeClass = "px-6 bg-error-500 dark:bg-error-500 hover:bg-error-700 hover:dark:bg-error-700 text-white-50 dark:text-white-50 focus:outline-none";
+}
+
 typeClass = defaultClass + ' ' + typeClass;
 </script>
 
