@@ -9,6 +9,7 @@ import LaruSelect from '@/Components/Laru/Select.vue';
 import LaruValidationError from '@/Components/Laru/ValidationError.vue';
 import LaruTextarea from '@/Components/Laru/Textarea.vue';
 import useSlugify from "@/Composables/useSlugify";
+import Modal from "@/Components/Laru/Modal.vue";
 import { watch } from "vue";
 
 const props = defineProps({
@@ -66,7 +67,22 @@ const submit = () => {
                 <span class="text-black-500 dark:text-white-50 font-semibold text-3xl">Edit Article</span>
 
                 <div class="flex flex-row items-center space-x-4">
-                    <LaruLinkButton type="error" as="button" method="delete" :href="route('articles.destroy', {'article': article.id})">Delete</LaruLinkButton>
+                  <Modal>
+                    <template #trigger>
+                      <LaruButton type="error" as="button">Delete</LaruButton>
+                    </template>
+                    <template #content>
+                      <div class="flex flex-col space-y-4 text-primary-50">
+                        <div>
+                          <h3 class="text-3xl font-medium">Confirmation</h3>
+                        </div>
+                        <div class="whitespace-normal leading-normal"><p>Delete Article [ ID: <span class="text-secondary-500">{{ article.id }}</span>, Name:  <span class="text-secondary-500">{{ article.title }}</span> ]</p></div>
+                        <div class="flex flex-row justify-end">
+                          <LaruLinkButton type="error" as="button" method="delete" :href="route('articles.destroy', {'article': article.id})">Delete</LaruLinkButton>
+                        </div>
+                      </div>
+                    </template>
+                  </Modal>
 
                     <LaruButton @click="submit">Save</LaruButton>
                 </div>
@@ -88,7 +104,7 @@ const submit = () => {
                         <div class="w-full max-w-lg space-y-2">
                             <LaruLabel for="slug" value="Slug" />
                             <LaruInput id="slug" v-model="form.slug"
-                                class="block w-ful p-4"
+                                class="block w-full p-4"
                                 placeholder="Fill the slug" required
                                 type="text" />
                             <LaruValidationError input="slug" />
