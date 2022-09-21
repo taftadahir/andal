@@ -18,10 +18,12 @@ class User extends Authenticatable
 
     // Properties
     public const ROLE_ADMIN = 'admin';
+    public const ROLE_SUBSCRIBER = 'subscriber';
 
     protected $fillable = [
         'name',
         'email',
+        'role',
         'password',
     ];
 

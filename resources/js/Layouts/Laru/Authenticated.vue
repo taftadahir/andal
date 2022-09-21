@@ -62,7 +62,7 @@ const toggleTheme = () => switchTheme();
         </SidebarItem>
 
         <!-- User -->
-        <SidebarItem :active="route().current('users.index')"
+        <SidebarItem :active="route().current('users.index') || route().current('users.edit')"
                      :href="route('users.index')"
                      :show-title="showingSidebarTitle">
           <template #title>
@@ -133,10 +133,10 @@ const toggleTheme = () => switchTheme();
                 class="fill-black-500 dark:fill-white-500 hover:fill-primary-500 hover:dark:fill-primary-500 transition duration-150 ease-in-out"/>
           </button>
 
-          <SidebarItem :active="route().current('dashboard')"
-                       :href="route('login')" :show-title="false">
+          <SidebarItem :active="route().current('users.edit')"
+                       :href="route('users.edit', {'user': $page.props.auth.user.id })" :show-title="false">
             <Person
-                class="fill-black-500 dark:fill-white-500 hover:fill-primary-500 hover:dark:fill-primary-500 transition duration-150 ease-in-out"/>
+                class="fill-black-500 dark:fill-white-500 hover:fill-primary-500 hover:dark:fill-primary-500 transition duration-150 ease-in-out" :class="{ 'fill-primary-500 dark:fill-primary-500' : route().current('users.edit', {'user': $page.props.auth.user.id })}"/>
           </SidebarItem>
         </div>
       </div>

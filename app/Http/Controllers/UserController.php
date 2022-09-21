@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -51,14 +52,26 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        $roles = [
+            User::ROLE_ADMIN => \Str::ucfirst(User::ROLE_ADMIN),
+            User::ROLE_SUBSCRIBER => \Str::ucfirst(User::ROLE_SUBSCRIBER),
+        ];
+
         return Inertia::render('Laru/User/Edit', [
             'user' => $user,
+            'roles' => $roles,
         ]);
     }
 
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        //
+        $validated = $request->validated();
+
+        $user->update($validated);
+
+        return redirect()->route('users.index')->with([
+            'success' => 'User Updated successfull.'
+        ]);
     }
 
     public function destroy(User $user)
