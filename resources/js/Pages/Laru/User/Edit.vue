@@ -46,7 +46,7 @@ const submit = () => {
                 <div>
                   <h3 class="text-3xl font-medium">Confirmation</h3>
                 </div>
-                <div class="whitespace-normal leading-normal"><p>Delete User [ ID: <span class="text-secondary-500">{{ user.id }}</span>, Name:  <span class="text-secondary-500">{{ user.title }}</span> ]</p></div>
+                <div class="whitespace-normal leading-normal"><p>Delete User [ ID: <span class="text-secondary-500">{{ user.id }}</span>, Name:  <span class="text-secondary-500">{{ user.name }}</span> ]</p></div>
                 <div class="flex flex-row justify-end">
                   <LaruLinkButton type="error" as="button" method="delete" :href="route('users.destroy', {'user': user.id})">Delete</LaruLinkButton>
                 </div>
