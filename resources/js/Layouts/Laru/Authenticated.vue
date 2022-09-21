@@ -63,7 +63,7 @@ const toggleTheme = () => switchTheme();
         </SidebarItem>
 
         <!-- Asset -->
-        <SidebarItem :active="route().current('assets.index')"
+        <SidebarItem :active="route().current('assets.index') || route().current('assets.edit')"
                      :href="route('assets.index')"
                      :show-title="showingSidebarTitle">
           <template #title>

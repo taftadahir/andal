@@ -35,12 +35,19 @@ class AssetController extends Controller
 
     public function edit(Asset $asset)
     {
-        return "Edit";
+        return Inertia::render('Laru/Asset/Edit', [
+            'asset' => $asset,
+        ]);
     }
 
     public function update(UpdateAssetRequest $request, Asset $asset)
     {
+        $validated = $request->validated();
+        $asset->update($validated);
 
+        return redirect()->route('assets.index')->with([
+            'success' => 'Asset Updated successfull.'
+        ]);
     }
 
     public function destroy(Asset $asset)
