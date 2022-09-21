@@ -49,6 +49,10 @@ class FrontendController extends Controller
             $latestArticles->published();
         }
 
+        $article->update([
+            'views' => $article->views + 1
+        ]);
+
         return Inertia::render('Laru/Single', [
             'article' => $article->load(['author:id,name', 'banner:id,name']),
             'articlesBySameAuthor' => $articlesBySameAuthor

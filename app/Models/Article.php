@@ -27,6 +27,7 @@ class Article extends Model
 
         'read_time',
         'status',
+        'views',
 
         'published_at',
         'archived_at',
@@ -41,6 +42,7 @@ class Article extends Model
 
         'status' => 'string',
         'read_time' => 'integer',
+        'views' => 'integer',
 
         'published_at' => 'datetime',
         'archived_at' => 'datetime',

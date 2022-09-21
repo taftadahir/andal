@@ -12,11 +12,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ArticleFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition()
     {
         $author = User::admin()->inRandomOrder()->first();
@@ -33,7 +28,7 @@ class ArticleFactory extends Factory
             'excerpt' => fake()->sentence(25),
 
             'read_time' => fake()->numberBetween(3600, 7200),
-            'views' => fake()->numberBetween(0, 3000000 )
+            'views' => fake()->numberBetween(0, 500000 )
         ];
     }
 
