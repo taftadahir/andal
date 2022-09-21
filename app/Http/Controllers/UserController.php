@@ -51,7 +51,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        //
+        return Inertia::render('Laru/User/Edit', [
+            'user' => $user,
+        ]);
     }
 
     public function update(Request $request, User $user)

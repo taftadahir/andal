@@ -60,10 +60,10 @@ watch(search, debounce(function (value) {
                 Name
               </th>
               <th class="px-6" scope="col">
-                Role
+                Email
               </th>
               <th class="px-6" scope="col">
-                Email
+                Role
               </th>
               <th class="px-6" scope="col">
                 Created At
@@ -82,11 +82,11 @@ watch(search, debounce(function (value) {
               <th class="py-4 px-6 font-medium whitespace-wrap max-w-xs"
                   scope="row"
                   v-html="user.name"></th>
+              <td class="px-6" v-html="user.email"></td>
               <td class="px-6">
                 <span class="font-medium px-2 py-1"
                     :class="{ 'bg-secondary-500 text-white-50': user.role == 'Subscriber', 'bg-success-500 text-white-50': user.role == 'Admin'  }" v-html="user.role"></span>
               </td>
-              <td class="px-6" v-html="user.email"></td>
               <td class="px-6"> {{
                   user.created_at ??
                   '---'
