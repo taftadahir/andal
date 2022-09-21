@@ -63,7 +63,7 @@ const toggleTheme = () => switchTheme();
         </SidebarItem>
 
         <!-- Asset -->
-        <SidebarItem :active="route().current('assets.index') || route().current('assets.edit')"
+        <SidebarItem :active="route().current('assets.index') || route().current('assets.edit') || route().current('assets.create')"
                      :href="route('assets.index')"
                      :show-title="showingSidebarTitle">
           <template #title>
@@ -134,10 +134,10 @@ const toggleTheme = () => switchTheme();
 
         <div class="flex flex-row space-x-4 sm:order-last">
 
-          <SidebarItem :active="route().current('dashboard')"
-                       :href="route('login')" :show-title="false">
+          <SidebarItem :active="false"
+                       :href="route('assets.create')" :show-title="false">
             <CloudUploadOutline
-                class="fill-black-500 dark:fill-white-500 hover:fill-primary-500 hover:dark:fill-primary-500 transition duration-150 ease-in-out"/>
+                class="fill-black-500 dark:fill-white-500 hover:fill-primary-500 hover:dark:fill-primary-500 transition duration-150 ease-in-out" :class="{ 'fill-primary-500 dark:fill-primary-500' : route().current('assets.create')}"/>
           </SidebarItem>
 
           <button @click="toggleTheme">

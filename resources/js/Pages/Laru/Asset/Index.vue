@@ -38,7 +38,7 @@ const props = defineProps({
         <div
             class="overflow-x-auto overflow-y-auto no-scrollbar relative z-30 pb-4">
           <div class="mb-10 sm:px-4 lg:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 no-scrollbar">
-            <AssetComponent v-for="asset in assets.data" :asset="asset"></AssetComponent>
+            <AssetComponent v-for="asset in assets.data" :asset="asset" class="w-full"></AssetComponent>
           </div>
 
           <!-- Infinite Scroll || Pagination -->

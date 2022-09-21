@@ -15,6 +15,7 @@ const props = defineProps({
 const form = useForm({
   'name': props.asset.name,
   'original_name': props.asset.original_name,
+  'extension': props.asset.extension,
 });
 
 const submit = () => {
@@ -82,9 +83,20 @@ const submit = () => {
           <div
               class="flex flex-row justify-between items-start space-x-6">
             <div class="w-full max-w-lg space-y-2">
-                <img :src="'/storage/assets/' + form.name"
-                     alt="Asset Image"
-                     class="w-full aspect-video" />
+              <LaruLabel for="extension" value="Extension" />
+              <LaruInput id="extension" v-model="form.extension"
+                         autocomplete="extension"
+                         class="block w-full p-4"
+                         placeholder="Fill the extension"
+                         type="text" />
+              <LaruValidationError input="extension" />
+            </div>
+
+            <div class="w-full max-w-lg space-y-2">
+              <LaruLabel for="file" value="Preview" />
+              <img :src="'/storage/assets/' + form.name"
+                   alt="Asset Image"
+                   class="w-full aspect-video" />
             </div>
           </div>
         </form>

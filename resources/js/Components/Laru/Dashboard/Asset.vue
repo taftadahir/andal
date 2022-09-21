@@ -1,6 +1,6 @@
 <template>
-  <div class="group relative w-fit aspect-video transition duration-150 ease-in-out overflow-hidden">
-    <img :src="'/storage/assets/' + asset.name" alt="Asset Image" class="w-full aspect-video group-hover:scale-105 transition duration-150 ease-in-out">
+  <div class="group relative w-full aspect-video transition duration-150 ease-in-out overflow-hidden">
+    <img :src="'/storage/assets/' + asset.name" :alt="asset.original_name" class="w-full aspect-video group-hover:scale-105 transition duration-150 ease-in-out">
     <div class="flex flex-row h-8 w-full top-full group-hover:top-auto group-hover:bottom-0 z-40 absolute transition-all duration-150 ease-in-out">
       <LaruLinkButton type="error" as="button" method="delete" :href="route('assets.destroy', {'asset': asset.id})" class="w-full">Delete</LaruLinkButton>
 

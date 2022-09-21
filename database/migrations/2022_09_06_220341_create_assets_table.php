@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
             $table->string('original_name');
+            $table->string('extension')->default('jpg');
             $table->string('name')->unique();
             $table->timestamps();
             $table->softDeletes();
