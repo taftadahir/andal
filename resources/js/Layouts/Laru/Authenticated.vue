@@ -14,6 +14,7 @@ import useSwitchTheme from "@/Composables/switchTheme";
 import Person from "@/Components/Laru/Icons/Person.vue";
 import CloudUploadOutline from "@/Components/Laru/Icons/CloudUploadOutline.vue";
 import FlashMessage from '@/Components/Laru/Dashboard/FlashMessage.vue';
+import ImageOutline from "@/Components/Laru/Icons/ImageOutline.vue";
 
 const showingSidebarTitle = ref(false);
 const {switchTheme} = useSwitchTheme();
@@ -59,6 +60,17 @@ const toggleTheme = () => switchTheme();
           </template>
 
           <DashboardIcon/>
+        </SidebarItem>
+
+        <!-- Asset -->
+        <SidebarItem :active="route().current('assets.index')"
+                     :href="route('assets.index')"
+                     :show-title="showingSidebarTitle">
+          <template #title>
+            Asset
+          </template>
+
+          <ImageOutline/>
         </SidebarItem>
 
         <!-- User -->

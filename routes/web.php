@@ -18,3 +18,4 @@ require __DIR__.'/auth.php';
 require __DIR__.'/article.php';
 require __DIR__.'/user.php';
 require __DIR__.'/setting.php';
+require __DIR__.'/asset.php';
