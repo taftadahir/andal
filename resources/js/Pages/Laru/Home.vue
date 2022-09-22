@@ -33,21 +33,19 @@ watch(search, debounce(function (value) {
         <div
             class="sm:mx-4 lg:mx-0 px-8 py-10 mb-4 bg-primary-50 dark:bg-black-600">
             <span
-                class="text-base sm:text-xl text-black-300 dark:text-white-500 transition ease-in-out duration-150">Welcome
-                to Andal</span>
+                class="text-base sm:text-xl text-black-300 dark:text-white-500 transition ease-in-out duration-150">Bienvenue à <span class="uppercase text-secondary-500 font-semibold">Alpha Smarty</span></span>
             <div
                 class="mt-2 text-3xl sm:text-4xl font-medium leading-10 text-black-500 dark:text-white-50">
-                Here, you can <span
-                    class="uppercase text-primary-500">learn</span> about <span
-                    class="uppercase text-primary-500">Blockchain
-                    terminology</span>.</div>
+                Tu trouveras ici des articles au sujet de la <span
+                    class="uppercase text-primary-500">Blockchain</span> et du <span
+                    class="uppercase text-primary-500">Developpement.</span>.</div>
         </div>
 
         <!-- Search -->
         <div class="sm:mx-4 lg:mx-0 mb-10">
             <div>
                 <LaruInput type="text" class="block w-full max-w-xl p-4"
-                    v-model="search" placeholder="Start by searching" />
+                    v-model="search" placeholder="Entre un mot clé" />
             </div>
         </div>
 
@@ -60,15 +58,15 @@ watch(search, debounce(function (value) {
 
         <div v-if="!articles.data.length"
             class="text-base sm:text-xl text-black-300 dark:text-white-500 transition ease-in-out duration-150">
-            No result ...</div>
+            Pas de résultat ...</div>
 
         <!-- Infinite Scroll || Pagination -->
         <div class="flex items-center justify-center w-full space-x-4"
             v-if="articles.prev_page_url || articles.next_page_url">
             <LaruLinkButton v-if="articles.prev_page_url"
-                :href="articles.prev_page_url">Previous</LaruLinkButton>
+                :href="articles.prev_page_url">Précédant</LaruLinkButton>
             <LaruLinkButton v-if="articles.next_page_url"
-                :href="articles.next_page_url">Next</LaruLinkButton>
+                :href="articles.next_page_url">Suivant</LaruLinkButton>
         </div>
 
     </LaruFrontendLayout>

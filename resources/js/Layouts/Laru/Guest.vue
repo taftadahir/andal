@@ -10,7 +10,7 @@ import { Link } from '@inertiajs/inertia-vue3';
             <Link :href="route('home')"
                 class="flex flex-row items-center w-full sm:w-auto justify-center py-4 sm:py-0">
             <ApplicationLogo class="block h-10 w-auto mr-6" />
-            <span class="text-3xl font-semibold text-primary-500">Andal</span>
+            <span class="text-3xl font-semibold text-primary-500">Smarty</span>
             </Link>
         </div>
 

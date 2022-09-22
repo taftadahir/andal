@@ -31,10 +31,9 @@ const toggleTheme = () =>  switchTheme();
 
             <div
                 class="font-medium text-sm flex items-center text-white-600 mt-4 sm:mt-0">
-                <span class="mr-4">Andal © 2022</span>
-                <span class="w-0.5 h-3 bg-white-600"></span>
-                <span class="ml-4">All right
-                    reserved</span>
+                <span class="mr-4">AlphaSmarty © 2022</span>
+<!--                <span class="w-0.5 h-3 bg-white-600"></span>-->
+<!--                <span class="ml-4">Accés reservé</span>-->
             </div>
 
         </div>

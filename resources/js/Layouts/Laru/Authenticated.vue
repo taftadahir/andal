@@ -46,7 +46,7 @@ const toggleTheme = () => switchTheme();
             class="h-20 flex flex-row items-center w-full">
         <ApplicationLogo class="block h-8 w-auto"/>
         <span v-if="showingSidebarTitle"
-              class="text-2xl font-semibold text-primary-500 ml-6">Andal</span>
+              class="text-2xl font-semibold text-primary-500 ml-6">Smarty</span>
       </Link>
 
       <!-- Sidebar menu -->

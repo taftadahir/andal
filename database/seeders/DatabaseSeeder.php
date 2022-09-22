@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         // Local and Production Environment

@@ -16,7 +16,7 @@ import ArrowIosDownwardOutline from "@/Components/Laru/Icons/ArrowIosDownwardOut
             <Link :href="route('home')"
                 class="bg-primary-50 dark:bg-black-600 flex flex-row items-center w-full sm:w-auto justify-center py-4 sm:py-0">
                 <ApplicationLogo class="block h-10 w-auto mr-6" />
-                <span class="text-3xl font-semibold text-primary-500">Andal</span>
+                <span class="text-3xl font-semibold text-primary-500">Smarty</span>
             </Link>
 
             <!-- Right nav -->
@@ -24,9 +24,9 @@ import ArrowIosDownwardOutline from "@/Components/Laru/Icons/ArrowIosDownwardOut
                 class="flex flex-row w-full sm:w-auto mt-2 sm:mt-0 sm:space-x-6">
                 <LinkButton :href="route('login')" type="secondary"
                     class="flex-grow sm:flex-grow-0 bg-primary-50 dark:bg-black-600">
-                    Login</LinkButton>
+                    Se connecter</LinkButton>
                 <LinkButton v-if="$page.props.auth.canRegister" :href="route('register')"
-                    class="flex-grow sm:flex-grow-0">Register</LinkButton>
+                    class="flex-grow sm:flex-grow-0">S'inscrire</LinkButton>
             </div>
 
             <div v-if="$page.props.auth.user" class="w-full sm:w-auto">
@@ -51,7 +51,7 @@ import ArrowIosDownwardOutline from "@/Components/Laru/Icons/ArrowIosDownwardOut
 
                         <DropdownLink :href="route('logout')" as="button"
                             method="post">
-                            Log Out
+                            Se deconnecter
                         </DropdownLink>
                     </template>
                 </Dropdown>

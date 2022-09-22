@@ -30,7 +30,7 @@ defineProps({
 
         <div class="mt-4">
           <div>
-            <span class="text-base text-white-600">By {{ article.author.name }} - {{ article.published_at }} - {{ article.read_time }} mins read</span>
+            <span class="text-base text-white-600">Par {{ article.author.name }} - {{ article.published_at }} - {{ article.read_time }} mins</span>
           </div>
 
           <!-- Banner & Summary -->
@@ -46,7 +46,7 @@ defineProps({
       </div>
       <div
         class="w-full lg:max-w-2xl lg:w-96 lg:h-[80vh] sticky top-0 flex flex-col lg:items-start lg:justify-center" v-if="articlesBySameAuthor.length">
-       <div class="single"><h3>By the same author</h3></div>  
+       <div class="single"><h3>Par le même auteur</h3></div>
         <!-- Articles -->
         <div
             class="no-scrollbar w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-10 lg:gap-y-8">
@@ -59,7 +59,7 @@ defineProps({
     </div>
 
     <div class="w-full max-w-5xl mx-auto mt-14" v-if="latestArticles.length">
-      <div class="single sm:px-4 lg:px-0"><h3>Latest published articles</h3></div>  
+      <div class="single sm:px-4 lg:px-0"><h3>Derniers articles publiés</h3></div>
       <!-- Articles -->
       <div
             class="mb-10 mt-4 sm:px-4 lg:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 no-scrollbar">

@@ -35,11 +35,11 @@ const submit = () => {
 
         <form @submit.prevent="submit" class="space-y-6">
             <LaruInput type="email" class="block w-full" v-model="form.email"
-                placeholder="Email" required autofocus
+                placeholder="Entre ton email" required autofocus
                 autocomplete="username" />
 
             <LaruInput type="password" class="block w-full"
-                v-model="form.password" placeholder="Password" required
+                v-model="form.password" placeholder="Entre ton mot de passe" required
                 autocomplete="current-password" />
 
             <!-- <div class="block mt-4">
@@ -54,13 +54,13 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <LaruLink v-if="canResetPassword" :href="route('register')">
-                    Don't have an account?
+                    S'inscrire?
                 </LaruLink>
 
                 <LaruButton class="ml-4"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing">
-                    Log in
+                    Se connecter
                 </LaruButton>
             </div>
         </form>

@@ -19,7 +19,7 @@ class ArticleFactory extends Factory
 
         return [
             'author' => $author->id,
-            'banner' => $banner->id,
+//            'banner' => $banner->id,
 
             'title' => fake()->text(100),
             'slug' => fake()->unique()->slug(5),
